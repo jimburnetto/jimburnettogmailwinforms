@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,19 +16,11 @@ namespace PluralsightWinFormsDemoApp
         {
             InitializeComponent();
         }
-        public string PodcastUrl { get { return textBoxUrl.Text; } }
+        public string PodcastUrl { get { return textBox1.Text; } }
 
-        private void OnButtonOkClick(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Uri uri;
-            if (!Uri.TryCreate(PodcastUrl, UriKind.Absolute, out uri))
-            {
-                errorProvider1.SetError(textBoxUrl, "Must be a valid URL starting with http://");
-            }
-            else
-            {
-                this.DialogResult = DialogResult.OK;
-            }
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

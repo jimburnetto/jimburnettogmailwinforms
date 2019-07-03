@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EpisodeView));
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxIsFavourite = new System.Windows.Forms.CheckBox();
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
@@ -43,7 +41,6 @@
             this.labelEpisodeTitle = new System.Windows.Forms.Label();
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -51,7 +48,6 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.checkBoxIsFavourite);
             this.panel1.Controls.Add(this.numericUpDownRating);
             this.panel1.Controls.Add(this.label2);
@@ -60,100 +56,144 @@
             this.panel1.Controls.Add(this.textBoxNotes);
             this.panel1.Controls.Add(this.textBoxTags);
             this.panel1.Controls.Add(this.buttonPlay);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 51);
             this.panel1.Name = "panel1";
-            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
+            this.panel1.Size = new System.Drawing.Size(421, 283);
+            this.panel1.TabIndex = 24;
             // 
             // checkBoxIsFavourite
             // 
-            resources.ApplyResources(this.checkBoxIsFavourite, "checkBoxIsFavourite");
+            this.checkBoxIsFavourite.AutoSize = true;
+            this.checkBoxIsFavourite.Location = new System.Drawing.Point(112, 56);
             this.checkBoxIsFavourite.Name = "checkBoxIsFavourite";
-            this.toolTip1.SetToolTip(this.checkBoxIsFavourite, resources.GetString("checkBoxIsFavourite.ToolTip"));
+            this.checkBoxIsFavourite.Size = new System.Drawing.Size(64, 17);
+            this.checkBoxIsFavourite.TabIndex = 36;
+            this.checkBoxIsFavourite.Text = "Favorite";
             this.checkBoxIsFavourite.UseVisualStyleBackColor = true;
             // 
             // numericUpDownRating
             // 
-            resources.ApplyResources(this.numericUpDownRating, "numericUpDownRating");
+            this.numericUpDownRating.Location = new System.Drawing.Point(112, 29);
             this.numericUpDownRating.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
             this.numericUpDownRating.Name = "numericUpDownRating";
-            this.toolTip1.SetToolTip(this.numericUpDownRating, resources.GetString("numericUpDownRating.ToolTip"));
+            this.numericUpDownRating.Size = new System.Drawing.Size(79, 20);
+            this.numericUpDownRating.TabIndex = 35;
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 74);
             this.label2.Name = "label2";
-            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "My Notes:";
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 31);
             this.label3.Name = "label3";
-            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "My Rating:";
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
-            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "My Tags:";
             // 
             // textBoxNotes
             // 
-            resources.ApplyResources(this.textBoxNotes, "textBoxNotes");
+            this.textBoxNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNotes.Location = new System.Drawing.Point(8, 91);
+            this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
-            this.toolTip1.SetToolTip(this.textBoxNotes, resources.GetString("textBoxNotes.ToolTip"));
+            this.textBoxNotes.Size = new System.Drawing.Size(408, 161);
+            this.textBoxNotes.TabIndex = 31;
             // 
             // textBoxTags
             // 
-            resources.ApplyResources(this.textBoxTags, "textBoxTags");
+            this.textBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTags.Location = new System.Drawing.Point(112, 2);
             this.textBoxTags.Name = "textBoxTags";
-            this.toolTip1.SetToolTip(this.textBoxTags, resources.GetString("textBoxTags.ToolTip"));
+            this.textBoxTags.Size = new System.Drawing.Size(304, 20);
+            this.textBoxTags.TabIndex = 30;
             // 
             // buttonPlay
             // 
-            resources.ApplyResources(this.buttonPlay, "buttonPlay");
+            this.buttonPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonPlay.Location = new System.Drawing.Point(8, 258);
             this.buttonPlay.Name = "buttonPlay";
-            this.toolTip1.SetToolTip(this.buttonPlay, resources.GetString("buttonPlay.ToolTip"));
+            this.buttonPlay.Size = new System.Drawing.Size(75, 23);
+            this.buttonPlay.TabIndex = 29;
+            this.buttonPlay.Text = "Play";
             this.buttonPlay.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.labelEpisodeTitle);
             this.flowLayoutPanel1.Controls.Add(this.labelPublicationDate);
             this.flowLayoutPanel1.Controls.Add(this.labelDescription);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.toolTip1.SetToolTip(this.flowLayoutPanel1, resources.GetString("flowLayoutPanel1.ToolTip"));
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(421, 51);
+            this.flowLayoutPanel1.TabIndex = 25;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // labelEpisodeTitle
             // 
-            resources.ApplyResources(this.labelEpisodeTitle, "labelEpisodeTitle");
+            this.labelEpisodeTitle.AutoSize = true;
+            this.labelEpisodeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
+            this.labelEpisodeTitle.Location = new System.Drawing.Point(3, 0);
             this.labelEpisodeTitle.Name = "labelEpisodeTitle";
-            this.toolTip1.SetToolTip(this.labelEpisodeTitle, resources.GetString("labelEpisodeTitle.ToolTip"));
+            this.labelEpisodeTitle.Size = new System.Drawing.Size(126, 25);
+            this.labelEpisodeTitle.TabIndex = 22;
+            this.labelEpisodeTitle.Text = "{{IN CODE}}";
             // 
             // labelPublicationDate
             // 
-            resources.ApplyResources(this.labelPublicationDate, "labelPublicationDate");
+            this.labelPublicationDate.AutoSize = true;
+            this.labelPublicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPublicationDate.Location = new System.Drawing.Point(3, 25);
             this.labelPublicationDate.Name = "labelPublicationDate";
-            this.toolTip1.SetToolTip(this.labelPublicationDate, resources.GetString("labelPublicationDate.ToolTip"));
+            this.labelPublicationDate.Size = new System.Drawing.Size(67, 13);
+            this.labelPublicationDate.TabIndex = 23;
+            this.labelPublicationDate.Text = "{{IN CODE}}";
             // 
             // labelDescription
             // 
-            resources.ApplyResources(this.labelDescription, "labelDescription");
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(3, 38);
+            this.labelDescription.MaximumSize = new System.Drawing.Size(10000, 150);
             this.labelDescription.Name = "labelDescription";
-            this.toolTip1.SetToolTip(this.labelDescription, resources.GetString("labelDescription.ToolTip"));
+            this.labelDescription.Size = new System.Drawing.Size(67, 13);
+            this.labelDescription.TabIndex = 24;
+            this.labelDescription.Text = "{{IN CODE}}";
             // 
             // EpisodeView
             // 
-            resources.ApplyResources(this, "$this");
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "EpisodeView";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.Size = new System.Drawing.Size(421, 334);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).EndInit();
@@ -179,7 +219,6 @@
         public System.Windows.Forms.Label labelEpisodeTitle;
         public System.Windows.Forms.Label labelPublicationDate;
         public System.Windows.Forms.Label labelDescription;
-        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }

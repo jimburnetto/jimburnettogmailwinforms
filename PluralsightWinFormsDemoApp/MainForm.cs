@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using PluralsightWinFormsDemoApp.Properties;
 
 namespace PluralsightWinFormsDemoApp
 {
@@ -16,15 +14,12 @@ namespace PluralsightWinFormsDemoApp
         private Episode currentEpisode;
         private EpisodeView episodeView;
         private PodcastView podcastView;
-        private SubscriptionView subscriptionView;
 
         public MainForm()
         {            
             InitializeComponent();
             episodeView = new EpisodeView() {Dock = DockStyle.Fill};
             podcastView = new PodcastView() {Dock = DockStyle.Fill};
-            subscriptionView = new SubscriptionView() {Dock = DockStyle.Fill};
-            splitContainer1.Panel1.Controls.Add(subscriptionView);
             episodeView.labelDescription.Text = "";
             episodeView.labelEpisodeTitle.Text = "";
             episodeView.labelPublicationDate.Text = "";
@@ -32,20 +27,6 @@ namespace PluralsightWinFormsDemoApp
             subscriptionView.buttonAddSubscription.Click += OnButtonAddSubscriptionClick;
             subscriptionView.buttonRemoveSubscription.Click += OnButtonRemovePodcastClick;
             episodeView.buttonPlay.Click += OnButtonPlayClick;
-            if (!SystemInformation.HighContrast)
-            {
-                BackColor = Color.White;
-            }
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Space | Keys.Control))
-            {
-                episodeView.buttonPlay.PerformClick();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void OnFormLoad(object sender, EventArgs e)
@@ -79,13 +60,6 @@ namespace PluralsightWinFormsDemoApp
             }
 
             SelectFirstEpisode();
-
-            if (Settings.Default.FirstRun)
-            {
-                MessageBox.Show("Welcome! Get started by clicking Add to subscribe to a podcast");
-                Settings.Default.FirstRun = false;
-                Settings.Default.Save();
-            }
         }
 
         private void SelectFirstEpisode()
@@ -210,11 +184,6 @@ namespace PluralsightWinFormsDemoApp
                     .ToList();
                 serializer.Serialize(s, podcasts);
             }
-        }
-
-        private void MainForm_HelpRequested(object sender, HelpEventArgs hlpevent)
-        {
-            MessageBox.Show("Help");
         }
     }
 }
