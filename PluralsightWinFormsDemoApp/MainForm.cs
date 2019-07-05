@@ -1,12 +1,13 @@
-﻿using PluralsightWinFormsDemoApp.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using PluralsightWinFormsDemoApp.Properties;
 
 namespace PluralsightWinFormsDemoApp
 {
@@ -15,12 +16,15 @@ namespace PluralsightWinFormsDemoApp
         private Episode currentEpisode;
         private EpisodeView episodeView;
         private PodcastView podcastView;
+        private SubscriptionView subscriptionView;
 
         public MainForm()
         {            
             InitializeComponent();
             episodeView = new EpisodeView() {Dock = DockStyle.Fill};
             podcastView = new PodcastView() {Dock = DockStyle.Fill};
+            subscriptionView = new SubscriptionView() {Dock = DockStyle.Fill};
+            splitContainer1.Panel1.Controls.Add(subscriptionView);
             episodeView.labelDescription.Text = "";
             episodeView.labelEpisodeTitle.Text = "";
             episodeView.labelPublicationDate.Text = "";
@@ -28,6 +32,10 @@ namespace PluralsightWinFormsDemoApp
             subscriptionView.buttonAddSubscription.Click += OnButtonAddSubscriptionClick;
             subscriptionView.buttonRemoveSubscription.Click += OnButtonRemovePodcastClick;
             episodeView.buttonPlay.Click += OnButtonPlayClick;
+            if (!SystemInformation.HighContrast)
+            {
+                BackColor = Color.White;
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -71,16 +79,12 @@ namespace PluralsightWinFormsDemoApp
             }
 
             SelectFirstEpisode();
-            MessageBox.Show($"DEbug2 FristRun = {Settings.Default.FirstRun}");
+
             if (Settings.Default.FirstRun)
             {
-                MessageBox.Show("Welco! Get Started by clicking Add to subscribe to a podcast");
+                MessageBox.Show("Welcome! Get started by clicking Add to subscribe to a podcast");
                 Settings.Default.FirstRun = false;
                 Settings.Default.Save();
-            }
-            else
-            {
-                MessageBox.Show($"DEbug1 FristRun = {Settings.Default.FirstRun}");
             }
         }
 
@@ -206,6 +210,11 @@ namespace PluralsightWinFormsDemoApp
                     .ToList();
                 serializer.Serialize(s, podcasts);
             }
+        }
+
+        private void MainForm_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            MessageBox.Show("Help");
         }
     }
 }

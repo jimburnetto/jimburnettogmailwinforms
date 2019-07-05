@@ -38,19 +38,19 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(197, 63);
+            this.buttonOK.Location = new System.Drawing.Point(186, 75);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 0;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.button1_Click);
+            this.buttonOK.Click += new System.EventHandler(this.OnButtonOkClick);
             // 
             // textBoxUrl
             // 
             this.textBoxUrl.Location = new System.Drawing.Point(78, 25);
             this.textBoxUrl.Name = "textBoxUrl";
-            this.textBoxUrl.Size = new System.Drawing.Size(194, 20);
+            this.textBoxUrl.Size = new System.Drawing.Size(183, 20);
             this.textBoxUrl.TabIndex = 1;
             // 
             // label1

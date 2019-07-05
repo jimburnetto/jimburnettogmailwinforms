@@ -15,13 +15,16 @@ namespace PluralsightWinFormsDemoApp
         public EpisodeView()
         {
             InitializeComponent();
-            toolTip1.SetToolTip(textBoxTags, "Enter tags for this podcast, comma separated");
-            toolTip1.SetToolTip(buttonPlay, "Launch Windows Media Player to play this");
+            toolTip1.SetToolTip(textBoxTags, 
+                "Enter tags for this podcast, comma separated");
+            toolTip1.SetToolTip(buttonPlay, 
+                "Launch Windows Media Player to play this episode");
+            textBoxTags.HelpRequested += textBoxTags_HelpRequested;
         }
 
-        private void ToolTip1_Popup(object sender, PopupEventArgs e)
+        void textBoxTags_HelpRequested(object sender, HelpEventArgs hlpevent)
         {
-
+            MessageBox.Show(TextResources.TagsHelp);
         }
     }
 }
