@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -48,7 +51,7 @@ namespace PluralsightWinFormsDemoApp
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void OnFormLoad(object sender, EventArgs e)
+        private async void OnFormLoad(object sender, EventArgs e)
         {
             List<Podcast> podcasts;
             if (File.Exists("subscriptions.xml"))
@@ -74,8 +77,17 @@ namespace PluralsightWinFormsDemoApp
 
             foreach (var pod in podcasts)
             {
-                UpdatePodcast(pod);
-                AddPodcastToTreeView(pod);
+                try
+                {
+                    await Task.Run(() => UpdatePodcast(pod)); // run in background.
+                    AddPodcastToTreeView(pod);
+                }
+                catch (Exception e )
+                {
+
+                    MessageBox.Show(e.Message);
+                }
+                
             }
 
             SelectFirstEpisode();
@@ -106,6 +118,9 @@ namespace PluralsightWinFormsDemoApp
 
         void UpdatePodcast(Podcast podcast)
         {
+            var r = new Random();
+            Thread.Sleep(r.Next(3000));
+
             var doc = new XmlDocument();
             doc.Load(podcast.SubscriptionUrl);
 
@@ -192,8 +207,21 @@ namespace PluralsightWinFormsDemoApp
             if (form.ShowDialog() == DialogResult.OK)
             {
                 var pod = new Podcast() {SubscriptionUrl = form.PodcastUrl };
-                UpdatePodcast(pod);
-                AddPodcastToTreeView(pod);
+                try
+                {
+                    UpdatePodcast(pod);
+                    AddPodcastToTreeView(pod);
+                }
+                catch (WebException)
+                {
+
+                    MessageBox.Show("Sorry, that podcast could not be found.  Please check the URL.");
+                }
+                catch (XmlException)
+                {
+                    MessageBox.Show("Sorry, that url is not a podcast feed");
+                }
+                
             }
         }
 
