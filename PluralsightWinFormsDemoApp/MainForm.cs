@@ -79,13 +79,19 @@ namespace PluralsightWinFormsDemoApp
             {
                 try
                 {
-                    await Task.Run(() => UpdatePodcast(pod)); // run in background.
-                    AddPodcastToTreeView(pod);
+                    var updatePodcastTask = Task.Run(() => UpdatePodcast(pod)); // run in background.
+                    var firstTask = await Task.WhenAny(updatePodcastTask, Task.Delay(2000)); //returns when either task completes first.  Either updatePocastTask or the delay task
+                    if (firstTask == updatePodcastTask)
+                    {
+                        //updatepodcasttask finishes first
+                        AddPodcastToTreeView(pod);
+                    }
+                    
                 }
-                catch (Exception e )
+                catch (Exception ex )
                 {
 
-                    MessageBox.Show(e.Message);
+                    MessageBox.Show(ex.Message);
                 }
                 
             }
