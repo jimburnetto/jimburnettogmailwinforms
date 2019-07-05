@@ -16,11 +16,20 @@ namespace PluralsightWinFormsDemoApp
         {
             InitializeComponent();
         }
-        public string PodcastUrl { get { return textBox1.Text; } }
+        public string PodcastUrl { get { return textBoxUrl.Text; } }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            Uri uri;
+            if(!Uri.TryCreate(PodcastUrl, UriKind.Absolute,out uri))
+            {
+                errorProvider1.SetError(textBoxUrl, "Must be a valid URL starting witih https://");
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PluralsightWinFormsDemoApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -27,6 +28,16 @@ namespace PluralsightWinFormsDemoApp
             subscriptionView.buttonAddSubscription.Click += OnButtonAddSubscriptionClick;
             subscriptionView.buttonRemoveSubscription.Click += OnButtonRemovePodcastClick;
             episodeView.buttonPlay.Click += OnButtonPlayClick;
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Space | Keys.Control))
+            {
+                episodeView.buttonPlay.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void OnFormLoad(object sender, EventArgs e)
@@ -60,6 +71,17 @@ namespace PluralsightWinFormsDemoApp
             }
 
             SelectFirstEpisode();
+            MessageBox.Show($"DEbug2 FristRun = {Settings.Default.FirstRun}");
+            if (Settings.Default.FirstRun)
+            {
+                MessageBox.Show("Welco! Get Started by clicking Add to subscribe to a podcast");
+                Settings.Default.FirstRun = false;
+                Settings.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show($"DEbug1 FristRun = {Settings.Default.FirstRun}");
+            }
         }
 
         private void SelectFirstEpisode()

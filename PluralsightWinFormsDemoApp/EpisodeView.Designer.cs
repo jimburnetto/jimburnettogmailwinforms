@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxIsFavourite = new System.Windows.Forms.CheckBox();
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
@@ -41,6 +42,7 @@
             this.labelEpisodeTitle = new System.Windows.Forms.Label();
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -68,7 +70,7 @@
             this.checkBoxIsFavourite.Location = new System.Drawing.Point(112, 56);
             this.checkBoxIsFavourite.Name = "checkBoxIsFavourite";
             this.checkBoxIsFavourite.Size = new System.Drawing.Size(64, 17);
-            this.checkBoxIsFavourite.TabIndex = 36;
+            this.checkBoxIsFavourite.TabIndex = 5;
             this.checkBoxIsFavourite.Text = "Favorite";
             this.checkBoxIsFavourite.UseVisualStyleBackColor = true;
             // 
@@ -82,7 +84,7 @@
             0});
             this.numericUpDownRating.Name = "numericUpDownRating";
             this.numericUpDownRating.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDownRating.TabIndex = 35;
+            this.numericUpDownRating.TabIndex = 3;
             // 
             // label2
             // 
@@ -90,7 +92,7 @@
             this.label2.Location = new System.Drawing.Point(5, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 32;
+            this.label2.TabIndex = 4;
             this.label2.Text = "My Notes:";
             // 
             // label3
@@ -99,7 +101,7 @@
             this.label3.Location = new System.Drawing.Point(5, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
-            this.label3.TabIndex = 33;
+            this.label3.TabIndex = 2;
             this.label3.Text = "My Rating:";
             // 
             // label1
@@ -108,7 +110,7 @@
             this.label1.Location = new System.Drawing.Point(5, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 34;
+            this.label1.TabIndex = 0;
             this.label1.Text = "My Tags:";
             // 
             // textBoxNotes
@@ -120,7 +122,7 @@
             this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
             this.textBoxNotes.Size = new System.Drawing.Size(408, 161);
-            this.textBoxNotes.TabIndex = 31;
+            this.textBoxNotes.TabIndex = 6;
             // 
             // textBoxTags
             // 
@@ -129,7 +131,7 @@
             this.textBoxTags.Location = new System.Drawing.Point(112, 2);
             this.textBoxTags.Name = "textBoxTags";
             this.textBoxTags.Size = new System.Drawing.Size(304, 20);
-            this.textBoxTags.TabIndex = 30;
+            this.textBoxTags.TabIndex = 1;
             // 
             // buttonPlay
             // 
@@ -137,7 +139,7 @@
             this.buttonPlay.Location = new System.Drawing.Point(8, 258);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(75, 23);
-            this.buttonPlay.TabIndex = 29;
+            this.buttonPlay.TabIndex = 7;
             this.buttonPlay.Text = "Play";
             this.buttonPlay.UseVisualStyleBackColor = true;
             // 
@@ -186,6 +188,10 @@
             this.labelDescription.TabIndex = 24;
             this.labelDescription.Text = "{{IN CODE}}";
             // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup);
+            // 
             // EpisodeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +225,6 @@
         public System.Windows.Forms.Label labelEpisodeTitle;
         public System.Windows.Forms.Label labelPublicationDate;
         public System.Windows.Forms.Label labelDescription;
-
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
